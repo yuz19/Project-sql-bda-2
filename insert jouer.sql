@@ -55,18 +55,18 @@ insert into jouer values(tjouer((select ref(spf) from sportifs spf where spf.ids
 insert into jouer values(tjouer((select ref(spf) from sportifs spf where spf.idsportif=10),(select ref(s) from sports s where s.idsport=6)));
 insert into jouer values(tjouer((select ref(spf) from sportifs spf where spf.idsportif=10),(select ref(s) from sports s where s.idsport=8)));
  
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 11), (SELECT REF(s) FROM sports s WHERE s.idsport = 2)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 11), (SELECT REF(s) FROM sports s WHERE s.idsport = 4)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 11), (SELECT REF(s) FROM sports s WHERE s.idsport = 8)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 12), (SELECT REF(s) FROM sports s WHERE s.idsport = 2)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 12), (SELECT REF(s) FROM sports s WHERE s.idsport = 4)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 12), (SELECT REF(s) FROM sports s WHERE s.idsport = 8)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 13), (SELECT REF(s) FROM sports s WHERE s.idsport = 2)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 13), (SELECT REF(s) FROM sports s WHERE s.idsport = 6)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 13), (SELECT REF(s) FROM sports s WHERE s.idsport = 8)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 14), (SELECT REF(s) FROM sports s WHERE s.idsport = 1)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 14), (SELECT REF(s) FROM sports s WHERE s.idsport = 2)));
-INSERT INTO Jouer VALUES (T_JOUEUR((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 14), (SELECT REF(s) FROM sports s WHERE s.idsport = 7)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 11), (SELECT REF(s) FROM sports s WHERE s.idsport = 2)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 11), (SELECT REF(s) FROM sports s WHERE s.idsport = 4)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 11), (SELECT REF(s) FROM sports s WHERE s.idsport = 8)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 12), (SELECT REF(s) FROM sports s WHERE s.idsport = 2)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 12), (SELECT REF(s) FROM sports s WHERE s.idsport = 4)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 12), (SELECT REF(s) FROM sports s WHERE s.idsport = 8)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 13), (SELECT REF(s) FROM sports s WHERE s.idsport = 2)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 13), (SELECT REF(s) FROM sports s WHERE s.idsport = 6)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 13), (SELECT REF(s) FROM sports s WHERE s.idsport = 8)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 14), (SELECT REF(s) FROM sports s WHERE s.idsport = 1)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 14), (SELECT REF(s) FROM sports s WHERE s.idsport = 2)));
+INSERT INTO Jouer VALUES (tjouer((SELECT REF(spf) FROM sportifs spf WHERE spf.idsportif = 14), (SELECT REF(s) FROM sports s WHERE s.idsport = 7)));
  
  
 insert into Jouer values (tjouer((select ref(s) from sportifs s where s.idsportif = 15), (select ref(sp) from sports sp where sp.idsport = 2)));

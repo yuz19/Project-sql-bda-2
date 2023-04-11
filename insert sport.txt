@@ -1,0 +1,6 @@
+insert sport
+inserer jouer
+inserer arbitrer
+inserer SEANCE
+inserer entrainer
+maj jouer

@@ -48,30 +48,7 @@ CREATE TYPE TSPORTIFS;
 /
 CREATE TYPE t_set_ref_tsportifs as table of ref tsportifs;
 /
-/*
-CREATE TYPE TSPORTIFS as object(
-    idsportif integer,
-    nom varchar2(50),
-    prenom varchar2(50),
-    sexe varchar(1) ,
-    age integer,
-    
-    sportif_jouer t_set_ref_tjouer,
-    sportif_arbitrer t_set_ref_tarbitrer
-)NOT Final;
-/
-
-CREATE TYPE tconseiller under tsportifs(
-    idsportifconseiller integer
-);
-/
-
-CREATE TYPE tentraineur under tsportifs(
-    idsportifentraineur integer,
-    entraineur_entrainer t_set_ref_tentrainer
-);
-/
-*/
+ 
 CREATE TYPE TCONSEILLER as OBJECT(
     idsportifconseiller integer,
     conseiller_sportifs t_set_ref_tsportifs
@@ -84,15 +61,10 @@ CREATE TYPE TVILLE AS OBJECT(
 );
 /
  
-CREATE TYPE TADRESSE as object(
-    rue             varchar2(50), 
-    numero          integer
-);
-/
 CREATE OR REPLACE  TYPE TGYMNASES AS OBJECT(
     idgymnase         INTEGER,
     nomgymnase        VARCHAR(50),
-    adresse           TADRESSE,
+    adresse           VARCHAR(250),
     ville             REF tville,
     surface           INTEGER,
     gymnases_seance   t_set_ref_tseance
@@ -117,14 +89,10 @@ CREATE TYPE TSPORTS AS OBJECT(
         id_conseiller ref tsportifs,
         sportif_jouer t_set_ref_tjouer,
         sportif_arbitrer t_set_ref_tarbitrer
-    )NOT Final;
+    ) ;
     /
     
-    CREATE TYPE tentraineur under tsportifs(
-    idsportifentraineur integer,
-    entraineur_entrainer t_set_ref_tentrainer
-    );
-    /
+ 
     CREATE OR REPLACE TYPE TJOUER as OBJECT(
         idsportif   REF TSPORTIFS,
         idsport     REF TSPORTS
@@ -145,7 +113,7 @@ CREATE TYPE TSPORTS AS OBJECT(
     );
     /
     CREATE OR REPLACE TYPE TENTRAINER as OBJECT(
-        idsportifentraineur REF tentraineur,
+        idsportifentraineur REF tsportifs,
         idsport             REF tsports
     );
     /
@@ -177,19 +145,103 @@ CREATE TYPE TSPORTS AS OBJECT(
         constraint fk_arbitrer_sport foreign key(idsport) references SPORTS
     );
 
-    CREATE TABLE SEANCE OF TSEANCE(
-        PRIMARY KEY(idgymnase, idsport, idsportifentraineur, jour, horaire),
-        foreign key(idgymnase) references GYMNASES,
-        foreign key(idsport) references SPORTS,
-        foreign key(idsportifentraineur) references SPORTIFS
-    );
-
-    --pour depanner
-    CREATE TABLE JOUER OF TJOUER(constraint fk_jouer_sportif foreign key(idsportif) references SPORTIFS,constraint fk_jouer_sport foreign key(idsport) references SPORTS);
-    CREATE TABLE ARBITRER OF TARBITRER(constraint fk_arbitrer_sportif foreign key(idsportif) references SPORTIFS,constraint fk_arbitrer_sport foreign key(idsport) references SPORTS);
+ 
+   /* CREATE TABLE JOUER OF TJOUER(constraint fk_jouer_sportif foreign key(idsportif)   references SPORTIFS,constraint fk_jouer_sport foreign key(idsport) references SPORTS);
+    CREATE TABLE ARBITRER OF TARBITRER(constraint fk_arbitrer_sportif foreign key(idsportif) references SPORTIFS,constraint fk_arbitrer_sport foreign key(idsport) references SPORTS);*/
     CREATE TABLE ENTRAINER of TENTRAINER(constraint  fk_entrainer_entraineur foreign key(idsportifentraineur) references SPORTIFS,constraint fk_entrainer_sport foreign key(idsport) references SPORTS);
     CREATE TABLE SEANCE OF TSEANCE (
         constraint fk_seance_gymnases foreign key(idgymnase) references GYMNASES,
         constraint fk_seance_sports foreign key(idsport) references SPORTS,
         constraint fk_seance_entraineur foreign key(idsportifentraineur) references SPORTIFS
     );
+/*create methode */
+--1--
+    Alter type tsportifs add member function nbr_sport_entraine return number cascade;
+    create or replace type body tsportifs as 
+    member function nbr_sport_entraine return number is
+        nbr_s_e number;
+    begin
+        SELECT COUNT(DEREF(idsport).idsport)
+        INTO nbr_s_e
+        FROM jouer
+        WHERE DEREF(idsportif).idsportif = self.idsportif;
+        return nbr_s_e;
+    end;
+    end;
+    /
+    --affichage
+    SELECT s.nbr_sport_entraine(),s.idsportif FROM sportifs s;
+
+--2--
+    Alter type tsports add member function nbr_gymnases_sports return number cascade;
+  
+    CREATE OR REPLACE TYPE BODY tsports AS 
+    MEMBER FUNCTION nbr_gymnases_sports RETURN NUMBER IS
+        nbr_gymnases NUMBER;
+    BEGIN
+        SELECT COUNT(DEREF(idgymnase).idgymnase)
+        INTO nbr_gymnases
+        FROM seance
+        WHERE DEREF(idsport).idsport = self.idsport;
+        return nbr_gymnases;
+    
+    END;
+    END;
+    /
+    --affichage
+    SELECT s.nbr_gymnases_sports(),s.idsport FROM sports s;
+--3--
+    Alter type tville add member function superficie_gymnases_ville return REAL cascade;
+    CREATE OR REPLACE TYPE BODY tville AS 
+    MEMBER FUNCTION superficie_gymnases_ville RETURN REAL IS 
+        superf_total REAL := 0;
+        nbr number :=0;
+    BEGIN 
+        
+        SELECT COUNT(idgymnase)
+        INTO nbr
+        FROM gymnases
+        WHERE DEREF(ville).ville = self.ville;
+       
+        SELECT SUM(surface)/nbr
+        INTO superf_total
+        FROM gymnases 
+        WHERE DEREF(ville).ville = self.ville;
+        
+        RETURN superf_total;
+    END;
+    END;
+    /
+
+    --affichage
+    SELECT v.superficie_gymnases_ville(),v.ville FROM ville v;
+--part5
+--1
+    SELECT IDSPORTIF, NOM, PRENOM FROM SPORTIFS WHERE age BETWEEN 20 AND 30;
+--2
+    SELECT v.superficie_gymnases_ville(),v.ville FROM ville v;
+--3
+    SELECT s.idsportif, s.nom, s.prenom
+    FROM sportifs s
+    WHERE s.id_conseiller IS NOT NULL;
+--4 
+SELECT * FROM entrainer e,seances s where e.idsport=s.idsport and (DEREF(value(s).idSport).libelle IN ('Hand ball','Basket ball')); 
+   /* SELECT * FROM entrainer e,seance s where e.idsport=s.idsport and(s.libelle="hand ball" or libelle="basket ball");*/
+--5
+select *
+from sportifs ss
+where ss.age=(select min(ss.age) from sportifs ss);
+/*
+SELECT DEREF(idsportif).idsportif as idsportif,COUNT(DEREF(idsport).idsport) as nbr_s_e FROM jouer GROUP BY DEREF(idsportif).idsportif;*/
+
+
+        CREATE OR REPLACE TYPE BODY tville AS 
+        
+        MEMBER FUNCTION NBR_GYMNASES_VILLE RETURN NUMBER IS
+            x number;
+        BEGIN
+            select count(ville) into x from ville;
+            return x;
+        END;
+        END;
+        /

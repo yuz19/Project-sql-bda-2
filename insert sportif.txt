@@ -1,0 +1,6 @@
+insert into sportif
+insert into sport 
+la creation jouer est faite
+la creation arbitrer est faite 
+maj jouer dans sportif
+maj arbitrer dans sportif

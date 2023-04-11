@@ -1,0 +1,5 @@
+insert ville
+insert gymnases
+insert seance 
+maj gymnases
+maj ville

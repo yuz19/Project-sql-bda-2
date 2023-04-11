@@ -1,3 +1,5 @@
+
+
 --INSERT INTO Sports VALUES(1,'Basket ball');
   INSERT INTO Sports VALUES (
   tsports(1, 'Basket ball',
@@ -7,33 +9,6 @@
     t_set_ref_tentrainer()
   )
 );
-  --Arbitrer
-    --INSERT INTO Arbitrer VALUES(1,1);
-    insert into arbitrer values(tarbitrer((select ref(spf) from sportifs  spf where spf.idsportif=1),(select ref(s) from sports s where s.idsport=1)));
-    --INSERT INTO Arbitrer VALUES(1,2);
-    INSERT INTO Arbitrer VALUES (
-    tarbitrer((SELECT REF(spf) FROM Sportifs spf WHERE spf.idsportif=1), (SELECT REF(s) FROM Sports s WHERE s.idsport=2))
-    );
-    --INSERT INTO Arbitrer VALUES(1,5);
-    INSERT INTO Arbitrer VALUES (
-    tarbitrer((SELECT REF(spf) FROM Sportifs spf WHERE spf.idsportif=1), (SELECT REF(s) FROM Sports s WHERE s.idsport=5))
-    );
-  --jouer
-    --INSERT INTO Jouer VALUES(1,2);
-    insert into jouer values(tjouer((select ref(spf) from sportifs  spf where spf.idsportif=1),(select ref(s) from sports s where s.idsport=2)));
-    --INSERT INTO Jouer VALUES (1, 4);
-    insert into jouer values(tjouer((select ref(spf) from sportifs spf where spf.idsportif=1), (select ref(s) from sports s where s.idsport=4)));
-
-    --INSERT INTO Jouer VALUES (1, 8);
-    insert into jouer values(tjouer((select ref(spf) from sportifs spf where spf.idsportif=1), (select ref(s) from sports s where s.idsport=8)));
-
-    
-  --maj arbitrer sports
-  insert into table (select sports_arbitrer from SPORTS where idsport=1)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=1);
-  --maj jouer  sports 
-  insert into table(select sports_jouer from SPORTS where idsport=1)values((select ref(j) from jouer j where j.idsport.idsport=1));
- 
- 
 --INSERT INTO Sports VALUES(2,'Volley ball');
   INSERT INTO Sports VALUES(
     tsports(2,'Volley ball',
@@ -109,3 +84,63 @@ INSERT INTO Sports VALUES(
   ));
   insert into table (select sports_arbitrer from TSPORTS where idsport=9)values((select ref (a) from arbitrer a where a.idsport.idsport=9));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+--maj
+
+  
+    
+  --maj arbitrer sports
+  insert into table (select sports_arbitrer from SPORTS where idsport=1)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=1);
+  insert into table (select sports_arbitrer from SPORTS where idsport=2)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=2);
+  insert into table (select sports_arbitrer from SPORTS where idsport=3)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=3);
+  insert into table (select sports_arbitrer from SPORTS where idsport=4)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=4);
+  insert into table (select sports_arbitrer from SPORTS where idsport=5)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=5);
+  insert into table (select sports_arbitrer from SPORTS where idsport=6)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=6);
+  insert into table (select sports_arbitrer from SPORTS where idsport=7)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=7);
+  insert into table (select sports_arbitrer from SPORTS where idsport=8)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=8);
+  insert into table (select sports_arbitrer from SPORTS where idsport=9)(select ref (a) from arbitrer a where DEREF(a.idsport).idsport=9);
+ 
+
+  --maj jouer  sports 
+  insert into table(select sports_jouer from SPORTS where idsport=1) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=1));
+  insert into table(select sports_jouer from SPORTS where idsport=2) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=2));
+  insert into table(select sports_jouer from SPORTS where idsport=3) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=3));
+  insert into table(select sports_jouer from SPORTS where idsport=4) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=4));
+  insert into table(select sports_jouer from SPORTS where idsport=5) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=5));
+  insert into table(select sports_jouer from SPORTS where idsport=6) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=6));
+  insert into table(select sports_jouer from SPORTS where idsport=7) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=7));
+  insert into table(select sports_jouer from SPORTS where idsport=8) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=8));
+  insert into table(select sports_jouer from SPORTS where idsport=9) ((select ref(j) from jouer j where DEREF(j.idsport).idsport=9));
+ --maj entrainer sports
+  insert into table(select sports_entrainer from sports where idsport=1) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=1));
+  insert into table(select sports_entrainer from sports where idsport=2) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=2));
+  insert into table(select sports_entrainer from sports where idsport=3) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=3));
+  insert into table(select sports_entrainer from sports where idsport=4) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=4));
+  insert into table(select sports_entrainer from sports where idsport=5) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=5));
+  insert into table(select sports_entrainer from sports where idsport=6) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=6));
+  insert into table(select sports_entrainer from sports where idsport=7) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=7));
+  insert into table(select sports_entrainer from sports where idsport=8) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=8));
+  insert into table(select sports_entrainer from sports where idsport=9) ((select ref(e) from entrainer e where DEREF(e.idsport).idsport=9));
+
+--maj seance sports
+  insert into table(select sports_seances from sports where idsport=1) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=1)); 
+  insert into table(select sports_seances from sports where idsport=2) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=2));
+  insert into table(select sports_seances from sports where idsport=3) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=3));
+  insert into table(select sports_seances from sports where idsport=4) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=4));
+  insert into table(select sports_seances from sports where idsport=5) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=5));
+  insert into table(select sports_seances from sports where idsport=6) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=6));
+  insert into table(select sports_seances from sports where idsport=7) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=7));
+  insert into table(select sports_seances from sports where idsport=8) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=8));
+  insert into table(select sports_seances from sports where idsport=9) ((select ref(s) from SEANCE s where DEREF(s.idsport).idsport=9));
