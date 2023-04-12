@@ -88,7 +88,8 @@ CREATE TYPE TSPORTS AS OBJECT(
         age integer,
         id_conseiller ref tsportifs,
         sportif_jouer t_set_ref_tjouer,
-        sportif_arbitrer t_set_ref_tarbitrer
+        sportif_arbitrer t_set_ref_tarbitrer,
+        sportif_entrainer t_set_ref_tentrainer
     ) ;
     /
     
