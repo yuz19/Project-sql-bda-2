@@ -11,10 +11,7 @@
         )
     );
 INSERT INTO Sportifs VALUES(tsportifs(3,'BOUZIDI','Amel','F',25,(select ref(spf) from sportifs spf where spf.idsportif=1), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
-    --maj jouer sportifs
-        insert into table (select s.Sportif_Jouer from Sportifs s where IdSportif= 3)(select ref(j) from jouer j where DEREF(j.IdSportif).IdSportif = 3);
-    --maj arbitrer sportifs
-        insert into table (select sportif_arbitrer from sportifs where idsportif=3)(select ref (a) from arbitrer a where DEREF(a.idsportif).idsportif=3);
+
         
 INSERT INTO Sportifs VALUES(tsportifs(4,'LACHEMI','Bouzid','M',32,(select ref(spf) from sportifs spf where spf.idsportif=1), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(5,'AAKOUB','Linda','F',22,(select ref(spf) from sportifs spf where spf.idsportif=1), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
@@ -67,13 +64,13 @@ INSERT INTO Sportifs VALUES(tsportifs(49,'JADI','Sandra','F',24,(select ref(spf)
 INSERT INTO Sportifs VALUES(tsportifs(50,'KALI','Yasser','M',22,(select ref(spf) from sportifs spf where spf.idsportif=2), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
 INSERT INTO Sportifs VALUES(tsportifs(51,'LAJEL','Fouad','M',24,(select ref(spf) from sportifs spf where spf.idsportif=5), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(52,'DANDOUR','Rami','M',22,(select ref(spf) from sportifs spf where spf.idsportif=5), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
-INSERT INTO Sportifs VALUES(tsportifs(53,'DEMMERA','Houcine','M',22,(select ref(spf) from sportifs spf where spf.idsportif=1), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer(),t_set_ref_tentrainer()));
+INSERT INTO Sportifs VALUES(tsportifs(53,'DEMMERA','Houcine','M',22,(select ref(spf) from sportifs spf where spf.idsportif=1), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(54,'ELKABBADJ','Mohammed','M',23,(select ref(spf) from sportifs spf where spf.idsportif=2), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
 INSERT INTO Sportifs VALUES(tsportifs(55,'FEROLI','Omer','M',23,(select ref(spf) from sportifs spf where spf.idsportif=2), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(56,'GUERRAOUI','Zohra','F',25,(select ref(spf) from sportifs spf where spf.idsportif=1), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(57,'BOUACHA','Aziz','M',25,(select ref(spf) from sportifs spf where spf.idsportif=1), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(58,'GUITENI','Adam','M',23,(select ref(spf) from sportifs spf where spf.idsportif=4), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
-INSERT INTO Sportifs VALUES(tsportifs(59,'KACI','Samia','F',23,NULL, t_set_ref_tjouer(),t_set_ref_tarbitrer() ));
+INSERT INTO Sportifs VALUES(tsportifs(59,'KACI','Samia','F',23,NULL, t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(60,'TIZEGHAT','Badis','M',32,(select ref(spf) from sportifs spf where spf.idsportif=3), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(61,'LAZARRI','Jamel','M',27,(select ref(spf) from sportifs spf where spf.idsportif=7), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
 INSERT INTO Sportifs VALUES(tsportifs(62,'BAZOUDI','Jaouad','M',32,(select ref(spf) from sportifs spf where spf.idsportif=3), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
@@ -110,7 +107,7 @@ INSERT INTO Sportifs VALUES(tsportifs(85,'HAMARI','Anes','M',30,(select ref(spf)
 INSERT INTO Sportifs VALUES(tsportifs(86,'GALLOTI','Boualem','M',30,(select ref(spf) from sportifs spf where spf.idsportif=2), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(87,'KASBADJI','Fateh','M',30,(select ref(spf) from sportifs spf where spf.idsportif=2), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
 INSERT INTO Sportifs VALUES(tsportifs(88,'JENOURI','Rachid','M',30,(select ref(spf) from sportifs spf where spf.idsportif=8), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
-INSERT INTO Sportifs VALUES(tsportifs(89,'RIHABI','Jamel','M',30,NULL, t_set_ref_tjouer(),t_set_ref_tarbitrer() ));
+INSERT INTO Sportifs VALUES(tsportifs(89,'RIHABI','Jamel','M',30,NULL, t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(90,'DERARNI','Nadir','M',30,(select ref(spf) from sportifs spf where spf.idsportif=2), t_set_ref_tjouer(),t_set_ref_tarbitrer(),t_set_ref_tentrainer() ));
 INSERT INTO Sportifs VALUES(tsportifs(91,'BATERAOUI','Zinedine','M',30,(select ref(spf) from sportifs spf where spf.idsportif=98), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));
 INSERT INTO Sportifs VALUES(tsportifs(92,'HADJI','Jamel','M',22,(select ref(spf) from sportifs spf where spf.idsportif=5), t_set_ref_tjouer(),t_set_ref_tarbitrer() ,t_set_ref_tentrainer()));

@@ -4,3 +4,4 @@ la creation jouer est faite
 la creation arbitrer est faite 
 maj jouer dans sportif
 maj arbitrer dans sportif
+maj entrainer dans sportif

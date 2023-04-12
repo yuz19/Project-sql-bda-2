@@ -10,12 +10,12 @@ TEMPFILE 'F:/M1 il/S2/bDA/TP/PROJET/SQL3_TempTBS.dbf'
 SIZE 50M
 AUTOEXTEND ON;
 --3 et 4
-CREATE USER SQL3 IDENTIFIED BY 123 DEFAULT TABLESPACE SQL3_TBS
-TEMPORARY TABLESPACE SQL3_TempTBS;
+    CREATE USER SQL3 IDENTIFIED BY 123 DEFAULT TABLESPACE SQL3_TBS
+    TEMPORARY TABLESPACE SQL3_TempTBS;
 
-GRANT ALL PRIVILEGES TO SQL3;
+    GRANT ALL PRIVILEGES TO SQL3;
 
-ALTER USER SQL3 QUOTA UNLIMITED ON SQL3_TBS;
+    ALTER USER SQL3 QUOTA UNLIMITED ON SQL3_TBS;
 
 ---------------------------
 ---table imbrique
@@ -122,7 +122,8 @@ CREATE TYPE TSPORTS AS OBJECT(
 --CREATION DES TABLES:
     CREATE TABLE SPORTIFS OF TSPORTIFS(PRIMARY KEY(idsportif),CHECK(sexe IN('M','F')))
     NESTED TABLE sportif_jouer  store as table_sportif_jouer,
-    NESTED TABLE sportif_arbitrer store as table_sportif_arbitrer;
+    NESTED TABLE sportif_arbitrer store as table_sportif_arbitrer,
+    NESTED TABLE sportif_entrainer store as table_sportif_entrainer;
     --tconseiller et tenraineur en fait pas la creation parcque il herit de sportifs
 
     CREATE TABLE VILLE OF TVILLE(PRIMARY KEY(ville))
@@ -195,21 +196,16 @@ CREATE TYPE TSPORTS AS OBJECT(
     Alter type tville add member function superficie_gymnases_ville return REAL cascade;
     CREATE OR REPLACE TYPE BODY tville AS 
     MEMBER FUNCTION superficie_gymnases_ville RETURN REAL IS 
-        superf_total REAL := 0;
-        nbr number :=0;
+        MoyenneSurface  REAL := 0;
+     
     BEGIN 
-        
-        SELECT COUNT(idgymnase)
-        INTO nbr
-        FROM gymnases
-        WHERE DEREF(ville).ville = self.ville;
-       
-        SELECT SUM(surface)/nbr
-        INTO superf_total
+ 
+        SELECT AVG(Surface)
+        INTO MoyenneSurface 
         FROM gymnases 
         WHERE DEREF(ville).ville = self.ville;
         
-        RETURN superf_total;
+        RETURN MoyenneSurface ;
     END;
     END;
     /
@@ -226,12 +222,10 @@ CREATE TYPE TSPORTS AS OBJECT(
     FROM sportifs s
     WHERE s.id_conseiller IS NOT NULL;
 --4 
-SELECT * FROM entrainer e,seances s where e.idsport=s.idsport and (DEREF(value(s).idSport).libelle IN ('Hand ball','Basket ball')); 
+    SELECT distinct(deref(e.idsportifentraineur).idsportif) FROM entrainer e,seance s where e.idsport=s.idsport and (DEREF(value(s).idSport).libelle IN ('Hand ball','Basket ball')); 
    /* SELECT * FROM entrainer e,seance s where e.idsport=s.idsport and(s.libelle="hand ball" or libelle="basket ball");*/
 --5
-select *
-from sportifs ss
-where ss.age=(select min(ss.age) from sportifs ss);
+select * from sportifs ss where ss.age=(select min(ss.age) from sportifs ss);
 /*
 SELECT DEREF(idsportif).idsportif as idsportif,COUNT(DEREF(idsport).idsport) as nbr_s_e FROM jouer GROUP BY DEREF(idsportif).idsportif;*/
 
@@ -245,4 +239,8 @@ SELECT DEREF(idsportif).idsportif as idsportif,COUNT(DEREF(idsport).idsport) as 
             return x;
         END;
         END;
-        /
+        /   
+SELECT sum(Surface),count(*)
+as MoyenneSurface
+FROM gymnases
+WHERE DEREF(ville).ville = 'Alger centre';

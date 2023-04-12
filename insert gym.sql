@@ -1,45 +1,40 @@
 --Five Gym Club
-insert into gymnases values(TGYMNASES(1,'Five Gym Club',tadresse('Boulevard Mohamed 5',null),(SELECT ref(v) from VILLE v WHERE v.ville='Alger centre') ,200,t_set_ref_tseance()));
-
-    --maj pour l'insertion gymnases
-    insert into table(
-        SELECT gymnases_seance FROM  GYMNASES where idgymnase=1
-        )(
-            (select ref(se) from SEANCE se where  DEREF(se.idgymnase).idgymnase=1)
-    );
-    
-insert into gymnases values(TGYMNASES(1,'Five Gym Club','Boulevard Mohamed 5',(SELECT ref(v) from VILLE v WHERE v.ville='Alger centre') ,200,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(2,'Mina Sport','28 impasse musette les sources',null),(SELECT ref(v) from VILLE v WHERE v.ville='Les sources'),450,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(3,'Aït Saada','Belouizdad',(SELECT ref(v) from VILLE v WHERE v.ville='Belouizdad'),400,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(4,'Bahri Gym','Rue Mohamed Benzineb',(SELECT ref(v) from VILLE v WHERE v.ville='Sidi Mhamed'),500,t_set_ref_tseance()));
-
-INSERT INTO Gymnases VALUES(TGYMNASES(5,'Ladies First','3 Rue Diar Naam N° 03',(SELECT ref(v) from VILLE v WHERE v.ville='El Biar'),620,t_set_ref_tseance()));
+insert into gymnases values(TGYMNASES(1,'Five Gym Club', 'Boulevard Mohamed 5' ,(SELECT ref(v) from VILLE v WHERE v.ville='Alger centre') ,200,t_set_ref_tseance()));
 
 
-INSERT INTO Gymnases VALUES(TGYMNASES(6,'C.T.F Club','Rue Sylvain FOURASTIER', 'El Mouradia',400,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(7,'Body Fitness Center','Rue Rabah Takdjourt','Alger centre',360,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(8,'Club Hydra Forme','Rue de l''Oasis', 'Hydra',420,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(9,'Profitness Dely Brahim','26 Bois des Cars 3', 'Dely Brahim', 620,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(10,'CLUB SIFAKS','Rue Ben Omar 31', 'Kouba',400,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(11,'Gym ZAAF Club','19 Ave Merabet Athmane', 'El Mouradia', 300,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(12,'GYM power','villa N°2, Chemin Said Hamdine', 'Bir Mourad Raïs', 480));
-INSERT INTO Gymnases VALUES(TGYMNASES(13,'Icosium sport','Rue ICOSUM', 'Hydra',200,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(14,'GIGA Fitness','res, Rue Hamoum Tahar', 'Birkhadem', 500,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(15,'AC Fitness Et Aqua','Lotissement FAHS lot A n 12 parcelle 26', 'Birkhadem',400,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(16,'MELIA GYM','Résidence les deux bassins Sahraoui local N° 03', 'El Achour', 600,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(17,'Sam Gym Power','Rue Mahdoud BENKHOUDJA', 'Kouba', 400,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(18,'AQUAFORTLAND SPA','Bordj el kiffan','Bordj el kiffan',450,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(19,'GoFitness','Lotissement el louz n°264', 'Baba hassen', 500,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(20,'Best Body Gym','Cité Alioua Fodil', 'Chéraga', 400,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(21,'Power house gym','Cooperative Amina 02 Lot 15', 'Alger',400,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(22,'POWER ZONE GYM','Chemin Fernane Hanafi', 'Hussein Dey', 500,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(23,'World Gym','14 Boulevard Ibrahim Hadjress', 'Béni Messous',520,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(24,'Moving Club','Bordj El Bahri','Bordj El Bahri',450,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(25,'Tiger gym','Route de Bouchaoui', 'Chéraga', 620,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(26,'Lion CrossFit','Centre commercial-Mohamadia mall',
-'Mohammadia',600,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(27,'Étoile sportive','Saoula','Saoula',350,t_set_ref_tseance()));
-INSERT INTO Gymnases VALUES(TGYMNASES(28,'Fitness life gym','El Harrach','El Harrach',400,t_set_ref_tseance()));
+
+insert into gymnases values(TGYMNASES(1,'Five Gym Club', 'Boulevard Mohamed 5' ,(SELECT ref(v) from VILLE v WHERE v.ville='Alger centre') ,200,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(2,'Mina Sport', '28 impasse musette les sources' ,(SELECT ref(v) from VILLE v WHERE v.ville='Les sources'),450,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(3,'Aït Saada', 'Belouizdad' ,(SELECT ref(v) from VILLE v WHERE v.ville='Belouizdad'),400,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(4,'Bahri Gym', 'Rue Mohamed Benzineb' ,(SELECT ref(v) from VILLE v WHERE v.ville='Sidi Mhamed'),500,t_set_ref_tseance()));
+
+INSERT INTO Gymnases VALUES(TGYMNASES(5,'Ladies First', '3 Rue Diar Naama N° 03',(SELECT ref(v) from VILLE v WHERE v.ville='El Biar'),620,t_set_ref_tseance()));
+
+
+INSERT INTO Gymnases VALUES(TGYMNASES(6,'C.T.F Club', 'Rue Sylvain FOURASTIER' , (SELECT ref(v) from VILLE v WHERE v.ville='El Mouradia'),400,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(7,'Body Fitness Center', 'Rue Rabah Takdjourt' ,(SELECT ref(v) from VILLE v WHERE v.ville='Alger centre'),360,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(8,'Club Hydra Forme', 'Rue de l''Oasis' , (SELECT ref(v) from VILLE v WHERE v.ville='Hydra'),420,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(9,'Profitness Dely Brahim', '26 Bois des Cars 3' ,(SELECT ref(v) from VILLE v WHERE v.ville= 'Dely Brahim'), 620,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(10,'CLUB SIFAKS', 'Rue Ben Omar 31' ,(SELECT ref(v) from VILLE v WHERE v.ville= 'Kouba'),400,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(11,'Gym ZAAF Club', '19 Ave Merabet Athmane' ,(SELECT ref(v) from VILLE v WHERE v.ville= 'El Mouradia'), 300,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(12,'GYM power', 'villa N°2, Chemin Said Hamdine', (SELECT ref(v) from VILLE v WHERE v.ville='Bir Mourad Raïs'), 480,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(13,'Icosium sport', 'Rue ICOSUM' , (SELECT ref(v) from VILLE v WHERE v.ville='Hydra'),200,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(14,'GIGA Fitness', 'res, Rue Hamoum Tahar' ,(SELECT ref(v) from VILLE v WHERE v.ville= 'Birkhadem'), 500,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(15,'AC Fitness Et Aqua', 'Lotissement FAHS lot A n 12 parcelle 26' , (SELECT ref(v) from VILLE v WHERE v.ville='Birkhadem'),400,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(16,'MELIA GYM', 'Résidence les deux bassins Sahraoui local',03), (SELECT ref(v) from VILLE v WHERE v.ville='El Achour'), 600,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(17,'Sam Gym Power', 'Rue Mahdoud BENKHOUDJA' , (SELECT ref(v) from VILLE v WHERE v.ville='Kouba'), 400,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(18,'AQUAFORTLAND SPA', 'Bordj el kiffan' ,(SELECT ref(v) from VILLE v WHERE v.ville='Bordj el kiffan'),450,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(19,'GoFitness', 'Lotissement el louz n°264', (SELECT ref(v) from VILLE v WHERE v.ville='Baba hassen'), 500,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(20,'Best Body Gym', 'Cité Alioua Fodil' ,(SELECT ref(v) from VILLE v WHERE v.ville= 'Chéraga'), 400,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(21,'Power house gym', 'Cooperative Amina 02 Lot 15' , (SELECT ref(v) from VILLE v WHERE v.ville='Alger'),400,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(22,'POWER ZONE GYM', 'Chemin Fernane Hanafi' ,(SELECT ref(v) from VILLE v WHERE v.ville= 'Hussein Dey'), 500,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(23,'World Gym', '14 Boulevard Ibrahim Hadjress' , (SELECT ref(v) from VILLE v WHERE v.ville='Béni Messous'),520,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(24,'Moving Club', 'Bordj El Bahri' ,(SELECT ref(v) from VILLE v WHERE v.ville='Bordj El Bahri'),450,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(25,'Tiger gym', 'Route de Bouchaoui' ,(SELECT ref(v) from VILLE v WHERE v.ville= 'Chéraga'), 620,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(26,'Lion CrossFit', 'Centre commercial-Mohamadia mall' ,
+(SELECT ref(v) from VILLE v WHERE v.ville='Mohammadia'),600,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(27,'Étoile sportive', 'Saoula' ,(SELECT ref(v) from VILLE v WHERE v.ville='Saoula'),350,t_set_ref_tseance()));
+INSERT INTO Gymnases VALUES(TGYMNASES(28,'Fitness life gym', 'El Harrach' ,(SELECT ref(v) from VILLE v WHERE v.ville='El Harrach'),400,t_set_ref_tseance()));
 
 --maj pour l'insertion gymnases
     insert into table(SELECT gymnases_seance FROM  GYMNASES where idgymnase=1)((select ref(se) from SEANCE se where  DEREF(se.idgymnase).idgymnase=1));
